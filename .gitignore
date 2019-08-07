@@ -143,3 +143,9 @@ Desktop.ini
 # ESLint
 ######################
 .eslintcache
+
+######################
+# Jhipster plugin
+######################
+entities.png
+proyecto.png
