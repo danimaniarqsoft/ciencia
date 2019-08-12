@@ -1,3 +1,6 @@
+/**
+ * SOLICITUD
+ */
 entity Convocatoria {
     nombre String,
     clave String,
@@ -8,14 +11,59 @@ entity Solicitud {
     clave String
 }
 
+entity EtapaSolicitud {
+    nombre String,
+    descripcion String
+}
+
+entity EstadoSolicitud {
+    nombre String,
+    descripcion String
+}
+
+entity Modalidad {
+    nombre String,
+    descripcion String,
+    montoMaximo Double,
+    duracion Integer,
+    numeroEtapas Integer,
+    fechaInicio LocalDate,
+    fechaFin LocalDate
+}
+
+entity TipoConvocatoria {
+    clave String,
+    descripcion String
+}
+
+entity MetaEtapa {
+    numero Integer,
+    prefijo String
+}
+
+entity Rubro {
+    nombre String,
+    descripcion String
+}
+
+entity TipoGasto {
+    nombre String,
+    descripcion String
+}
+
 /**
  * https://stackoverflow.com/questions/33334746/using-inheritance-on-jhipster-entities
+ * PROYECTO
  */
+
 entity Proyecto {
-    titulo String,
-    resumen TextBlob,
+    multidisciplinario Boolean,
     palabrasclave String,
-    objetivo TextBlob,
+    tituloEs TextBlob,
+    tituloEn TextBlob,
+    resumenEs TextBlob,
+    resumenEn TextBlob,
+    objetivoGeneral TextBlob,
     antecedentes TextBlob,
     descripcion TextBlob,
     hipotesis TextBlob,
@@ -23,8 +71,7 @@ entity Proyecto {
     resultados TextBlob,
     mecanismos TextBlob,
     acciones TextBlob,
-    bibliografia TextBlob,
-    multidisciplinaria Boolean
+    bibliografia TextBlob
 }
 
 entity DocumentoProyecto {
@@ -113,15 +160,6 @@ entity Domicilio {
  * Catálogos
  */
 
-entity Modalidad {
-    nombre String,
-    descripcion String,
-    montoMaximo Double,
-    duracion Integer,
-    numeroEtapas Integer,
-    fechaInicio LocalDate,
-    fechaFin LocalDate
-}
 
 entity TipoDocumento {
     nombre String,
@@ -148,30 +186,12 @@ entity TipoRecurso {
     descripcion String
 }
 
-entity TipoGasto {
-    nombre String,
-    descripcion String
-}
-
-entity Rubro {
-    nombre String,
-    descripcion String
-}
-
-entity FaseSolicitud {
-    fechaInicio LocalDate,
-    fechaFin LocalDate
-}
-
 entity TipoFase{
     nombre String,
     descripcion String
 }
 
-entity EstadoSolicitud {
-    nombre String,
-    descripcion String
-}
+
 
 entity Genero {
     nombre String,
