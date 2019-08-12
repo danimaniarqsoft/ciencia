@@ -41,16 +41,6 @@ entity MetaEtapa {
     prefijo String
 }
 
-entity Rubro {
-    nombre String,
-    descripcion String
-}
-
-entity TipoGasto {
-    nombre String,
-    descripcion String
-}
-
 /**
  * https://stackoverflow.com/questions/33334746/using-inheritance-on-jhipster-entities
  * PROYECTO
@@ -74,42 +64,47 @@ entity Proyecto {
     bibliografia TextBlob
 }
 
-entity DocumentoProyecto {
-    contentype String,
+entity RegistroPersona {
+    catedratico Boolean
+}
+
+entity RolPersona {
+    nombre String,
+    descripcion String
+}
+
+entity RolInstitucion {
+    nombre String,
+    descripcion String
+}
+
+entity PersonaDocumento {
+
+}
+
+
+/**
+ * DOCUMENTO
+ */
+
+entity Documento {
     contenido Blob
 }
 
-entity DocumentoParticipante {
-    contentype String,
-    contenido Blob
-}
-
-entity Etapa {
-    numero Integer,
+entity TipoDocumento {
     nombre String,
-    descripcion TextBlob,
-    duracion Integer
+    descripcion String
 }
 
-entity ObjetivoEspecifico {
+entity Plantilla {
     nombre String,
-    descripcion TextBlob
+    descripcion String,
+    contenido TextBlob
 }
 
-entity Meta {
-    nombre String,
-    descripcion TextBlob
-}
-
-entity Actividad {
-    nombre String,
-    descripcion TextBlob
-}
-
-entity Gasto {
-    importe Double,
-    justificacion TextBlob
-}
+/**
+ * PERSONA
+ */
 
 entity PersonaFisica {
     cvu String,
@@ -129,6 +124,76 @@ entity PersonaMoral {
     razonSocial String,
     reniecyt String,
     domicilio String
+}
+
+/**
+ * PLAN DE TRABAJO
+ */
+
+entity Etapa {
+    numeroEtapa Integer,
+    nombre String,
+    descripcion TextBlob,
+    duracion Integer
+}
+
+entity ObjetivoEspecifico {
+    nombre String,
+    descripcion TextBlob
+}
+
+entity EtapaObjetivo {
+
+}
+
+entity Meta {
+    nombre String,
+    descripcion TextBlob
+}
+
+entity Actividad {
+    nombre String,
+    descripcion TextBlob
+}
+
+entity Produccion {
+    otroProducto String
+}
+
+entity TipoProducto {
+    nombre String,
+    descripcion String
+}
+
+/**
+ * DESGLOSE FINANCIERO
+ */
+
+entity Gasto {
+    importe Double,
+    justificacion TextBlob
+}
+
+entity TipoRecurso {
+    nombre String,
+    descripcion String
+}
+
+entity TipoGasto {
+    nombre String,
+    descripcion String
+}
+
+entity Rubro {
+    nombre String,
+    descripcion String
+}
+
+/**
+ * EVALUADOR
+ */
+entity RegistroEvaluador {
+
 }
 
 entity PropuestaEvaluador {
@@ -152,18 +217,61 @@ entity PropuestaEvaluador {
     especialidad String
 }
 
-entity Domicilio {
-    direccion String
+entity EstadoAsignacion {
+    nombre String,
+    descripcion String
 }
 
 /**
- * Catálogos
+ * FIRMA ELECTRONICA
  */
+entity FirmaElectronica {
+    cadenaOriginal String,
+    selloDigital String,
+    certificado Blob,
+    fechaAcuse LocalDate
+}
 
-
-entity TipoDocumento {
+entity TipoFirma {
     nombre String,
     descripcion String
+}
+
+/**
+ * NOTIFICACION
+ */
+ 
+entity Notificacion {
+    mensaje TextBlob,
+    de String,
+    para String,
+    cc String,
+    fechaEnvio LocalDate
+}
+entity TipoNotificacion {
+    nombre String,
+    descripcion String,
+    mensaje TextBlob
+}
+
+entity EstadoNotificacion {
+    nombre String,
+    descripcion String
+}
+
+/**
+ * SEGURIDAD
+ */
+entity ClaveSimple {
+    masterKey String,
+    password String
+}
+
+/**
+ * OTROS CATÁLOGOS
+ */
+entity Domicilio {
+    direccion String
 }
 
 entity AreaDeConocimiento {
@@ -177,11 +285,6 @@ entity AreaDeConocimiento {
 }
 
 entity RolParticipante {
-    nombre String,
-    descripcion String
-}
-
-entity TipoRecurso {
     nombre String,
     descripcion String
 }
@@ -226,18 +329,6 @@ entity Producto {
 /**
  * Asociaciones
  */
-
-entity RegistroPersona {
-    catedratico Boolean
-}
-
-entity RegistroActividad {
-
-}
-
-entity RegistroEvaluador {
-
-}
 
 relationship ManyToOne {
   Solicitud to Convocatoria
