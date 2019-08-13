@@ -78,10 +78,6 @@ entity RolInstitucion {
     descripcion String
 }
 
-entity PersonaDocumento {
-
-}
-
 
 /**
  * DOCUMENTO
@@ -102,6 +98,10 @@ entity Plantilla {
     contenido TextBlob
 }
 
+entity PersonaDocumento {
+
+}
+
 /**
  * PERSONA
  */
@@ -118,6 +118,15 @@ entity PersonaFisica {
     rcea String,
     apellidoPaterno String,
     apellidoMaterno String
+}
+
+entity Domicilio {
+    direccion String
+}
+
+entity TipoDomicilio {
+    nombre String,
+    descripcion String
 }
 
 entity PersonaMoral {
@@ -229,7 +238,7 @@ entity FirmaElectronica {
     cadenaOriginal String,
     selloDigital String,
     certificado Blob,
-    fechaAcuse LocalDate
+    fechaFirma LocalDate
 }
 
 entity TipoFirma {
@@ -243,15 +252,16 @@ entity TipoFirma {
  
 entity Notificacion {
     mensaje TextBlob,
-    de String,
-    para String,
-    cc String,
+    remitente String,
+    //destinatario String,
+    //cc String,
     fechaEnvio LocalDate
 }
+
 entity TipoNotificacion {
     nombre String,
     descripcion String,
-    mensaje TextBlob
+    plantilla TextBlob
 }
 
 entity EstadoNotificacion {
@@ -270,9 +280,6 @@ entity ClaveSimple {
 /**
  * OTROS CATÁLOGOS
  */
-entity Domicilio {
-    direccion String
-}
 
 entity AreaDeConocimiento {
     idCampo Long,
@@ -284,7 +291,8 @@ entity AreaDeConocimiento {
     especialidad String
 }
 
-entity Genero {
+
+entity Pais{
     nombre String,
     descripcion String
 }
@@ -294,7 +302,7 @@ entity EntidadFederativa {
     descripcion String
 }
 
-entity Pais{
+entity Genero {
     nombre String,
     descripcion String
 }
@@ -304,44 +312,19 @@ entity GradoAcademico {
     descripcion String
 }
 
-entity TipoDomicilio {
-    nombre String,
-    descripcion String
-}
-
 /**
  * Asociaciones
  */
 
-relationship ManyToOne {
+relationship ManyToOne{
   Solicitud to Convocatoria
-  Solicitud{fase} to FaseSolicitud,
-  Solicitud{estado} to EstadoSolicitud,
-  Proyecto to Modalidad,
-  DocumentoProyecto to TipoDocumento,
-  DocumentoProyecto to Proyecto
-  DocumentoParticipante to TipoDocumento,
-  Etapa to Proyecto,
-  ObjetivoEspecifico to Proyecto,
-  Meta to Proyecto,
-  Meta to ObjetivoEspecifico,
-  Actividad to Proyecto,
-  Actividad to Meta,
-  Gasto to Proyecto
-  Gasto to Etapa,
-  Gasto to TipoRecurso,
-  Gasto to TipoGasto,
-  Gasto to Rubro,
-  Gasto to PersonaFisica,
-  Rubro to TipoGasto
 }
 
 relationship OneToOne {
-  User to PersonaFisica  // most be the owner
+
 }
 
 relationship ManyToMany {
-    Etapa{objetivo} to ObjetivoEspecifico{etapa},
-    Actividad to Producto
- }
- 
+
+}
+
