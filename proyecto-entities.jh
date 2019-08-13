@@ -311,3 +311,85 @@ entity GradoAcademico {
     nombre String,
     descripcion String
 }
+
+
+/**
+ * RELATIONSHIPS
+ */
+
+relationship OneToOne {
+    Proyecto{solicitud} to Solicitud{proyecto},
+    PersonaDocumento{firma} to FirmaElectronica,
+    PersonaFisica{login} to User,
+    ClaveSimple{usuario} to User
+}
+
+relationship ManyToOne {
+    MetaEtapa to Convocatoria,
+    Convocatoria to TipoConvocatoria,
+    Solicitud to Convocatoria,
+    Solicitud{etapa} to EtapaSolicitud,
+    Solicitud{estado} to EstadoSolicitud,
+    Rubro to TipoGasto,
+    Proyecto to Modalidad,
+    Documento to Proyecto,
+    Etapa to Proyecto,
+    ObjetivoEspecifico to Proyecto,
+    EtapaObjetivo to Proyecto,
+    Meta to Proyecto,
+    Actividad to Proyecto,
+    Produccion to Proyecto,
+    Gasto to Proyecto,
+    AreaDeConocimiento to Proyecto,
+    PropuestaEvaluador to Proyecto,
+    RegistroEvaluador to Proyecto,
+    RegistroPersona to Proyecto,
+    RegistroPersona to PersonaFisica,
+    RegistroPersona to RolPersona,
+    RegistroEvaluador to RolInstitucion,
+    Documento to Plantilla,
+    Documento to TipoDocumento,
+    Documento to EtapaSolicitud,
+    Documento to Proyecto,
+    PersonaDocumento to Proyecto,
+    PersonaDocumento to PersonaFisica,
+    PersonaDocumento to RolPersona,
+    PersonaDocumento to Documento,
+    PersonaDocumento to EtapaSolicitud,
+    PersonaFisica to Pais,
+    PersonaFisica to Genero,
+    PersonaFisica to GradoAcademico,
+    PersonaFisica to EntidadFederativa,
+    Domicilio to PersonaFisica,
+    Domicilio to TipoDomicilio,
+    PersonaMoral to EntidadFederativa,
+    EtapaObjetivo to Etapa,
+    EtapaObjetivo to ObjetivoEspecifico,
+    Meta to EtapaObjetivo,
+    Actividad to Meta,
+    Produccion to Actividad,
+    Produccion to TipoProducto,
+    Produccion to PersonaFisica,
+    Gasto to Etapa,
+    Gasto to TipoRecurso,
+    Gasto to TipoGasto,
+    Gasto to Rubro,
+    Gasto to PersonaMoral,
+    RegistroEvaluador to EstadoAsignacion,
+    RegistroEvaluador to Proyecto,
+    RegistroEvaluador{evaluador} to PersonaFisica,    
+    FirmaElectronica{tipo} to TipoFirma,
+    Notificacion to TipoNotificacion,
+    Notificacion to EstadoNotificacion,
+    Notificacion to Solicitud,
+    Notificacion{destinatario} to PersonaFisica,
+    Notificacion{cc} to PersonaFisica,
+    Notificacion to EtapaSolicitud
+}
+
+relationship ManyToMany {
+    MetaEtapa{rubros} to Rubro,
+    Convocatoria{modalidades} to Modalidad,
+    PersonaFisica{instituciones} to PersonaMoral,
+    PersonaMoral{replegales} to PersonaFisica
+}
