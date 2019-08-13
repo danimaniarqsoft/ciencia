@@ -422,18 +422,3 @@ entity GradoAcademico {
 }
 
 
-/**
- * ASOCIACIONES
- */
-
-relationship OneToOne {
-
-}
-
-relationship ManyToOne {
-    
-}
-
-relationship ManyToMany {
-
-}

@@ -147,5 +147,6 @@ Desktop.ini
 ######################
 # Jhipster plugin
 ######################
-entities.png
-proyecto.png
+entities*.png
+proyecto*.png
+

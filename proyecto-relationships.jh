@@ -3,12 +3,7 @@
  */
 
 relationship ManyToOne {
-    MetaEtapa to Convocatoria,
-    Convocatoria to TipoConvocatoria,
-    Solicitud to Convocatoria,
-    Solicitud{etapa} to EtapaSolicitud,
-    Solicitud{estado} to EstadoSolicitud,
-    Rubro to TipoGasto
+
 }
 
 relationship ManyToMany {
