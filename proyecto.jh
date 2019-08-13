@@ -284,18 +284,6 @@ entity AreaDeConocimiento {
     especialidad String
 }
 
-entity RolParticipante {
-    nombre String,
-    descripcion String
-}
-
-entity TipoFase{
-    nombre String,
-    descripcion String
-}
-
-
-
 entity Genero {
     nombre String,
     descripcion String
@@ -317,11 +305,6 @@ entity GradoAcademico {
 }
 
 entity TipoDomicilio {
-    nombre String,
-    descripcion String
-}
-
-entity Producto {
     nombre String,
     descripcion String
 }
