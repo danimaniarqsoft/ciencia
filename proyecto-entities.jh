@@ -113,7 +113,6 @@ entity PersonaFisica {
     nombre String,
     rfc String,
     curp String,
-    genero String,
     correo String,
     nivelsni String,
     rcea String,
