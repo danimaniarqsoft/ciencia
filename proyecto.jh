@@ -1,5 +1,5 @@
 /**
- * SOLICITUD
+ * CONVOCATORIA
  */
 entity Convocatoria {
     nombre String,
@@ -41,6 +41,20 @@ entity MetaEtapa {
     prefijo String
 }
 
+relationship ManyToOne {
+    MetaEtapa to Convocatoria,
+    Convocatoria to TipoConvocatoria,
+    Solicitud to Convocatoria,
+    Solicitud{etapa} to EtapaSolicitud,
+    Solicitud{estado} to EstadoSolicitud,
+    Rubro to TipoGasto
+}
+
+relationship ManyToMany {
+    MetaEtapa{rubros} to Rubro
+    Convocatoria{modalidades} to Modalidad
+}
+
 /**
  * https://stackoverflow.com/questions/33334746/using-inheritance-on-jhipster-entities
  * PROYECTO
@@ -79,6 +93,29 @@ entity RolInstitucion {
 }
 
 
+relationship OneToOne {
+    Proyecto{solicitud} to Solicitud{proyecto}    
+}
+
+relationship ManyToOne {
+    Proyecto to Modalidad,
+    Documento to Proyecto,
+    Etapa to Proyecto,
+    ObjetivoEspecifico to Proyecto,
+    EtapaObjetivo to Proyecto,
+    Meta to Proyecto,
+    Actividad to Proyecto,
+    Produccion to Proyecto,
+    Gasto to Proyecto,
+    AreaDeConocimiento to Proyecto,
+    PropuestaEvaluador to Proyecto,
+    RegistroEvaluador to Proyecto,
+    RegistroPersona to Proyecto,
+    RegistroPersona to PersonaFisica,
+    RegistroPersona to RolPersona,
+    RegistroEvaluador to RolInstitucion
+}
+
 /**
  * DOCUMENTO
  */
@@ -100,6 +137,22 @@ entity Plantilla {
 
 entity PersonaDocumento {
 
+}
+
+relationship ManyToOne {
+    Documento to Plantilla,
+    Documento to TipoDocumento,
+    Documento to EtapaSolicitud,
+    Documento to Proyecto,
+    PersonaDocumento to Proyecto,
+    PersonaDocumento to PersonaFisica,
+    PersonaDocumento to RolPersona,
+    PersonaDocumento to Documento,
+    PersonaDocumento to EtapaSolicitud
+}
+ 
+relationship OneToOne {
+    PersonaDocumento{firma} to FirmaElectronica
 }
 
 /**
@@ -133,6 +186,25 @@ entity PersonaMoral {
     razonSocial String,
     reniecyt String,
     domicilio String
+}
+
+relationship ManyToOne {
+    PersonaFisica to Pais,
+    PersonaFisica to Genero,
+    PersonaFisica to GradoAcademico,
+    PersonaFisica to EntidadFederativa,
+    Domicilio to PersonaFisica,
+    Domicilio to TipoDomicilio,
+    PersonaMoral to EntidadFederativa
+}
+
+relationship ManyToMany {
+    PersonaFisica{instituciones} to PersonaMoral,
+    PersonaMoral{replegales} to PersonaFisica
+}
+
+relationship OneToOne {
+    PersonaFisica{login} to User
 }
 
 /**
@@ -174,9 +246,19 @@ entity TipoProducto {
     descripcion String
 }
 
+relationship ManyToOne {
+    EtapaObjetivo to Etapa,
+    EtapaObjetivo to ObjetivoEspecifico,
+    Meta to EtapaObjetivo,
+    Actividad to Meta,
+    Produccion to Actividad,
+    Produccion to TipoProducto,
+    Produccion to PersonaFisica
+}
+
 /**
  * DESGLOSE FINANCIERO
- */
+*/
 
 entity Gasto {
     importe Double,
@@ -198,6 +280,13 @@ entity Rubro {
     descripcion String
 }
 
+relationship ManyToOne {
+    Gasto to Etapa,
+    Gasto to TipoRecurso,
+    Gasto to TipoGasto,
+    Gasto to Rubro,
+    Gasto to PersonaMoral
+}
 /**
  * EVALUADOR
  */
@@ -231,6 +320,11 @@ entity EstadoAsignacion {
     descripcion String
 }
 
+relationship ManyToOne {
+    RegistroEvaluador to EstadoAsignacion,
+    RegistroEvaluador to Proyecto,
+    RegistroEvaluador{evaluador} to PersonaFisica
+}
 /**
  * FIRMA ELECTRONICA
  */
@@ -246,6 +340,10 @@ entity TipoFirma {
     descripcion String
 }
 
+relationship ManyToOne {
+    FirmaElectronica{tipo} to TipoFirma
+}
+
 /**
  * NOTIFICACION
  */
@@ -253,8 +351,6 @@ entity TipoFirma {
 entity Notificacion {
     mensaje TextBlob,
     remitente String,
-    //destinatario String,
-    //cc String,
     fechaEnvio LocalDate
 }
 
@@ -269,6 +365,14 @@ entity EstadoNotificacion {
     descripcion String
 }
 
+relationship ManyToOne {
+    Notificacion to TipoNotificacion,
+    Notificacion to EstadoNotificacion,
+    Notificacion to Solicitud,
+    Notificacion{destinatario} to PersonaFisica,
+    Notificacion{cc} to PersonaFisica,
+    Notificacion to EtapaSolicitud
+}
 /**
  * SEGURIDAD
  */
@@ -277,11 +381,17 @@ entity ClaveSimple {
     password String
 }
 
+relationship OneToOne {
+    ClaveSimple{usuario} to User
+}
+
 /**
  * OTROS CATÁLOGOS
  */
 
 entity AreaDeConocimiento {
+    idArea Long,
+    area String,
     idCampo Long,
     campo String,
     idDisciplina Long,
@@ -290,7 +400,6 @@ entity AreaDeConocimiento {
     subdisciplina String,
     especialidad String
 }
-
 
 entity Pais{
     nombre String,
@@ -311,20 +420,3 @@ entity GradoAcademico {
     nombre String,
     descripcion String
 }
-
-/**
- * Asociaciones
- */
-
-relationship ManyToOne{
-  Solicitud to Convocatoria
-}
-
-relationship OneToOne {
-
-}
-
-relationship ManyToMany {
-
-}
-
