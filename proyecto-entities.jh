@@ -253,6 +253,7 @@ entity TipoFirma {
 entity Notificacion {
     mensaje TextBlob,
     remitente String,
+    cc String,
     fechaEnvio LocalDate
 }
 
@@ -323,12 +324,12 @@ relationship OneToOne {
 }
 
 relationship ManyToOne {
-    MetaEtapa to Convocatoria,
+    MetaEtapa{convocatorias} to Convocatoria{metaEtapas},
     Convocatoria to TipoConvocatoria,
     Solicitud to Convocatoria,
     Solicitud{etapa} to EtapaSolicitud,
     Solicitud{estado} to EstadoSolicitud,
-    Proyecto to Modalidad,
+    Proyecto{modalidad} to Modalidad,
     AreaDeConocimiento to Proyecto,
     PropuestaEvaluador to Proyecto,
     RegistroEvaluador to Proyecto,
@@ -347,13 +348,13 @@ relationship ManyToOne {
     PersonaDocumento to PersonaFisica,
     PersonaDocumento to RolPersona,
     PersonaDocumento to EtapaSolicitud,
-    PersonaFisica to Pais,
-    PersonaFisica to Genero,
-    PersonaFisica to GradoAcademico,
-    PersonaFisica to EntidadFederativa,
+    PersonaFisica{pais} to Pais,
+    PersonaFisica{genero} to Genero,
+    PersonaFisica{grado} to GradoAcademico,
+    PersonaFisica{entidadFederativa} to EntidadFederativa,
     Domicilio to PersonaFisica,
-    Domicilio to TipoDomicilio,
-    PersonaMoral to EntidadFederativa,
+    Domicilio{tipoDomicilio} to TipoDomicilio,
+    PersonaMoral{entidad} to EntidadFederativa,
     Etapa to Proyecto,
     ObjetivoEspecifico to Proyecto,
     EtapaObjetivo to Etapa,
@@ -379,12 +380,11 @@ relationship ManyToOne {
     Notificacion to EstadoNotificacion,
     Notificacion to Solicitud,
     Notificacion{destinatario} to PersonaFisica,
-    Notificacion{cc} to PersonaFisica,
     Notificacion to EtapaSolicitud
 }
 
 relationship ManyToMany {
-    MetaEtapa{rubros} to Rubro,
+    MetaEtapa{rubros} to Rubro{metaEtapas},
     Convocatoria{modalidades} to Modalidad,
     PersonaFisica{instituciones} to PersonaMoral,
     PersonaMoral{replegales} to PersonaFisica
