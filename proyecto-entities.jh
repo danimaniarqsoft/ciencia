@@ -135,6 +135,12 @@ entity PersonaMoral {
     domicilio String
 }
 
+entity Institucion {
+    nombre String,
+    localidad String,
+    municipio String
+}
+
 /**
  * PLAN DE TRABAJO
  */
@@ -380,12 +386,13 @@ relationship ManyToOne {
     Notificacion to EstadoNotificacion,
     Notificacion to Solicitud,
     Notificacion{destinatario} to PersonaFisica,
-    Notificacion to EtapaSolicitud
+    Notificacion to EtapaSolicitud,
+    Institucion to EntidadFederativa
 }
 
 relationship ManyToMany {
-    MetaEtapa{rubros} to Rubro{metaEtapas},
+    MetaEtapa{rubros} to Rubro{defEtapas},
     Convocatoria{modalidades} to Modalidad,
-    PersonaFisica{instituciones} to PersonaMoral,
+    PersonaFisica{instituciones} to Institucion,
     PersonaMoral{replegales} to PersonaFisica
 }
