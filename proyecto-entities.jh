@@ -330,7 +330,7 @@ relationship OneToOne {
 }
 
 relationship ManyToOne {
-    MetaEtapa{convocatorias} to Convocatoria{metaEtapas},
+    MetaEtapa{convocatoriasDefinicion} to Convocatoria{metaEtapas},
     Convocatoria to TipoConvocatoria,
     Solicitud to Convocatoria,
     Solicitud{etapa} to EtapaSolicitud,
@@ -392,7 +392,7 @@ relationship ManyToOne {
 
 relationship ManyToMany {
     MetaEtapa{rubros} to Rubro{defEtapas},
-    Convocatoria{modalidades} to Modalidad,
-    PersonaFisica{instituciones} to Institucion,
+    Convocatoria{modalidades} to Modalidad{convocatorias},
+    PersonaFisica{instituciones} to Institucion{adscritos},
     PersonaMoral{representantesLegales} to PersonaFisica{institucionesRepresentante}
 }
