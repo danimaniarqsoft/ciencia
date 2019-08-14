@@ -1,0 +1,13 @@
+
+entity PersonaFisica {
+    cvu String,
+    titulo String,
+    nombre String,
+    rfc String,
+    curp String,
+    correo String,
+    nivelsni String,
+    rcea String,
+    apellidoPaterno String,
+    apellidoMaterno String
+}
