@@ -434,3 +434,7 @@ relationship ManyToMany {
     PersonaFisica{instituciones} to Institucion{adscritos},
     PersonaMoral{representantesLegales} to PersonaFisica{institucionesRepresentante}
 }
+
+
+paginate * with pagination
+service Convocatoria, Solicitud, Proyecto, RegistroPersona, PersonaDocumento, PersonaFisica, Etapa, Gasto, RegistroEvaluador, Notificacion, FirmaElectronica with serviceImpl
