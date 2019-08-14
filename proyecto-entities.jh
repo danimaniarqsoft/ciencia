@@ -5,40 +5,24 @@ entity Convocatoria {
     nombre String,
     clave String,
     annioFiscal Integer,
-    activated Boolean,
-    createdBy String,
-    createdDate Instant,
-    lastModifiedBy String,
-    lastModifiedDate Instant
+    activated Boolean
 }
 
 entity Solicitud {
     clave String,
-    activated Boolean,
-    createdBy String,
-    createdDate Instant,
-    lastModifiedBy String,
-    lastModifiedDate Instant
+    activated Boolean
 }
 
 entity EtapaSolicitud {
     nombre String,
     descripcion String,
-    activated Boolean,
-    createdBy String,
-    createdDate Instant,
-    lastModifiedBy String,
-    lastModifiedDate Instant
+    activated Boolean
 }
 
 entity EstadoSolicitud {
     nombre String,
     descripcion String,
-    activated Boolean,
-    createdBy String,
-    createdDate Instant,
-    lastModifiedBy String,
-    lastModifiedDate Instant
+    activated Boolean
 }
 
 entity Modalidad {
@@ -49,30 +33,18 @@ entity Modalidad {
     numeroEtapas Integer,
     fechaInicio LocalDate,
     fechaFin LocalDate,
-    activated Boolean,
-    createdBy String,
-    createdDate Instant,
-    lastModifiedBy String,
-    lastModifiedDate Instant
+    activated Boolean
 }
 
 entity TipoConvocatoria {
     clave String,
     descripcion String,
-    activated Boolean,
-    createdBy String,
-    createdDate Instant,
-    lastModifiedBy String,
-    lastModifiedDate Instant
+    activated Boolean
 }
 
 entity MetaEtapa {
     numero Integer,
-    prefijo String,
-    createdBy String,
-    createdDate Instant,
-    lastModifiedBy String,
-    lastModifiedDate Instant
+    prefijo String
 }
 
 /**
@@ -96,42 +68,24 @@ entity Proyecto {
     mecanismos TextBlob,
     acciones TextBlob,
     bibliografia TextBlob,
-    activated Boolean,
-    createdBy String,
-    createdDate Instant,
-    lastModifiedBy String,
-    lastModifiedDate Instant
+    activated Boolean
 }
 
 entity RegistroPersona {
-    catedratico Boolean,
-    createdBy String,
-    createdDate Instant,
-    lastModifiedBy String,
-    lastModifiedDate Instant
+    catedratico Boolean
 }
 
 entity RolPersona {
     nombre String,
     descripcion String,
-    activated Boolean,
-    createdBy String,
-    createdDate Instant,
-    lastModifiedBy String,
-    lastModifiedDate Instant
+    activated Boolean
 }
 
 entity RolInstitucion {
     nombre String,
     descripcion String,
-    activated Boolean,
-    createdBy String,
-    createdDate Instant,
-    lastModifiedBy String,
-    lastModifiedDate Instant
+    activated Boolean
 }
-
-
 
 /**
  * DOCUMENTO
@@ -139,39 +93,24 @@ entity RolInstitucion {
 
 entity Documento {
     contenido Blob,
-    activated Boolean,
-    createdBy String,
-    createdDate Instant,
-    lastModifiedBy String,
-    lastModifiedDate Instant
+    activated Boolean
 }
 
 entity TipoDocumento {
     nombre String,
     descripcion String,
-    activated Boolean,
-    createdBy String,
-    createdDate Instant,
-    lastModifiedBy String,
-    lastModifiedDate Instant
+    activated Boolean
 }
 
 entity Plantilla {
     nombre String,
     descripcion String,
     contenido TextBlob,
-    activated Boolean,
-    createdBy String,
-    createdDate Instant,
-    lastModifiedBy String,
-    lastModifiedDate Instant
+    activated Boolean
 }
 
 entity PersonaDocumento {
-    createdBy String,
-    createdDate Instant,
-    lastModifiedBy String,
-    lastModifiedDate Instant
+
 }
 
 /**
@@ -189,52 +128,32 @@ entity PersonaFisica {
     rcea String,
     apellidoPaterno String,
     apellidoMaterno String,
-    activated Boolean,
-    createdBy String,
-    createdDate Instant,
-    lastModifiedBy String,
-    lastModifiedDate Instant
+    activated Boolean
 }
 
 entity Domicilio {
     direccion String,
-    activated Boolean,
-    createdBy String,
-    createdDate Instant,
-    lastModifiedBy String,
-    lastModifiedDate Instant
+    activated Boolean
 }
 
 entity TipoDomicilio {
     nombre String,
     descripcion String,
-    activated Boolean,
-    createdBy String,
-    createdDate Instant,
-    lastModifiedBy String,
-    lastModifiedDate Instant
+    activated Boolean
 }
 
 entity PersonaMoral {
     razonSocial String,
     reniecyt String,
     domicilio String,
-    activated Boolean,
-    createdBy String,
-    createdDate Instant,
-    lastModifiedBy String,
-    lastModifiedDate Instant
+    activated Boolean
 }
 
 entity Institucion {
     nombre String,
     localidad String,
     municipio String,
-    activated Boolean,
-    createdBy String,
-    createdDate Instant,
-    lastModifiedBy String,
-    lastModifiedDate Instant
+    activated Boolean
 }
 
 /**
@@ -246,21 +165,13 @@ entity Etapa {
     nombre String,
     descripcion TextBlob,
     duracion Integer,
-    activated Boolean,
-    createdBy String,
-    createdDate Instant,
-    lastModifiedBy String,
-    lastModifiedDate Instant
+    activated Boolean
 }
 
 entity ObjetivoEspecifico {
     nombre String,
     descripcion TextBlob,
-    activated Boolean,
-    createdBy String,
-    createdDate Instant,
-    lastModifiedBy String,
-    lastModifiedDate Instant
+    activated Boolean
 }
 
 entity EtapaObjetivo {
@@ -270,40 +181,24 @@ entity EtapaObjetivo {
 entity Meta {
     nombre String,
     descripcion TextBlob,
-    activated Boolean,
-    createdBy String,
-    createdDate Instant,
-    lastModifiedBy String,
-    lastModifiedDate Instant
+    activated Boolean
 }
 
 entity Actividad {
     nombre String,
     descripcion TextBlob,
-    activated Boolean,
-    createdBy String,
-    createdDate Instant,
-    lastModifiedBy String,
-    lastModifiedDate Instant
+    activated Boolean
 }
 
 entity Produccion {
     otroProducto String,
-    activated Boolean,
-    createdBy String,
-    createdDate Instant,
-    lastModifiedBy String,
-    lastModifiedDate Instant
+    activated Boolean
 }
 
 entity TipoProducto {
     nombre String,
     descripcion String,
-    activated Boolean,
-    createdBy String,
-    createdDate Instant,
-    lastModifiedBy String,
-    lastModifiedDate Instant
+    activated Boolean
 }
 
 /**
@@ -313,51 +208,31 @@ entity TipoProducto {
 entity Gasto {
     importe Double,
     justificacion TextBlob,
-    activated Boolean,
-    createdBy String,
-    createdDate Instant,
-    lastModifiedBy String,
-    lastModifiedDate Instant
+    activated Boolean
 }
 
 entity TipoRecurso {
     nombre String,
     descripcion String,
-    activated Boolean,
-    createdBy String,
-    createdDate Instant,
-    lastModifiedBy String,
-    lastModifiedDate Instant
+    activated Boolean
 }
 
 entity TipoGasto {
     nombre String,
     descripcion String,
-    activated Boolean,
-    createdBy String,
-    createdDate Instant,
-    lastModifiedBy String,
-    lastModifiedDate Instant
+    activated Boolean
 }
 
 entity Rubro {
     nombre String,
     descripcion String,
-    activated Boolean,
-    createdBy String,
-    createdDate Instant,
-    lastModifiedBy String,
-    lastModifiedDate Instant
+    activated Boolean
 }
 
 /**
  * EVALUADOR
  */
 entity RegistroEvaluador {
-    createdBy String,
-    createdDate Instant,
-    lastModifiedBy String,
-    lastModifiedDate Instant
 
 }
 
@@ -380,21 +255,13 @@ entity PropuestaEvaluador {
     idSubdisciplina Long,
     subdisciplina String,
     especialidad String,
-    activated Boolean,
-    createdBy String,
-    createdDate Instant,
-    lastModifiedBy String,
-    lastModifiedDate Instant
+    activated Boolean
 }
 
 entity EstadoAsignacion {
     nombre String,
     descripcion String,
-    activated Boolean,
-    createdBy String,
-    createdDate Instant,
-    lastModifiedBy String,
-    lastModifiedDate Instant
+    activated Boolean
 }
 
 /**
@@ -405,21 +272,13 @@ entity FirmaElectronica {
     selloDigital String,
     certificado Blob,
     fechaFirma LocalDate,
-    activated Boolean,
-    createdBy String,
-    createdDate Instant,
-    lastModifiedBy String,
-    lastModifiedDate Instant
+    activated Boolean
 }
 
 entity TipoFirma {
     nombre String,
     descripcion String,
-    activated Boolean,
-    createdBy String,
-    createdDate Instant,
-    lastModifiedBy String,
-    lastModifiedDate Instant
+    activated Boolean
 }
 
 /**
@@ -431,32 +290,20 @@ entity Notificacion {
     remitente String,
     cc String,
     fechaEnvio LocalDate,
-    activated Boolean,
-    createdBy String,
-    createdDate Instant,
-    lastModifiedBy String,
-    lastModifiedDate Instant
+    activated Boolean
 }
 
 entity TipoNotificacion {
     nombre String,
     descripcion String,
     plantilla TextBlob,
-    activated Boolean,
-    createdBy String,
-    createdDate Instant,
-    lastModifiedBy String,
-    lastModifiedDate Instant
+    activated Boolean
 }
 
 entity EstadoNotificacion {
     nombre String,
     descripcion String,
-    activated Boolean,
-    createdBy String,
-    createdDate Instant,
-    lastModifiedBy String,
-    lastModifiedDate Instant
+    activated Boolean
 }
 
 /**
@@ -465,11 +312,7 @@ entity EstadoNotificacion {
 entity ClaveSimple {
     masterKey String,
     password String,
-    activated Boolean,
-    createdBy String,
-    createdDate Instant,
-    lastModifiedBy String,
-    lastModifiedDate Instant
+    activated Boolean
 }
 
 /**
@@ -485,51 +328,31 @@ entity AreaDeConocimiento {
     disciplina String,
     idSubdisciplina Long,
     subdisciplina String,
-    especialidad String,
-    createdBy String,
-    createdDate Instant,
-    lastModifiedBy String,
-    lastModifiedDate Instant
+    especialidad String
 }
 
 entity Pais{
     nombre String,
     descripcion String,
-    activated Boolean,
-    createdBy String,
-    createdDate Instant,
-    lastModifiedBy String,
-    lastModifiedDate Instant
+    activated Boolean
 }
 
 entity EntidadFederativa {
     nombre String,
     descripcion String,
-    activated Boolean,
-    createdBy String,
-    createdDate Instant,
-    lastModifiedBy String,
-    lastModifiedDate Instant
+    activated Boolean
 }
 
 entity Genero {
     nombre String,
     descripcion String,
-    activated Boolean,
-    createdBy String,
-    createdDate Instant,
-    lastModifiedBy String,
-    lastModifiedDate Instant
+    activated Boolean
 }
 
 entity GradoAcademico {
     nombre String,
     descripcion String,
-    activated Boolean,
-    createdBy String,
-    createdDate Instant,
-    lastModifiedBy String,
-    lastModifiedDate Instant
+    activated Boolean
 }
 
 
@@ -573,6 +396,7 @@ relationship ManyToOne {
     PersonaFisica{grado} to GradoAcademico,
     PersonaFisica{entidadFederativa} to EntidadFederativa,
     Domicilio to PersonaFisica,
+    Domicilio to PersonaMoral,
     Domicilio{tipoDomicilio} to TipoDomicilio,
     PersonaMoral{entidad} to EntidadFederativa,
     Etapa to Proyecto,
