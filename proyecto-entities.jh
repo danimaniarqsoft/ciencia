@@ -4,21 +4,25 @@
 entity Convocatoria {
     nombre String,
     clave String,
-    annioFiscal Integer
+    annioFiscal Integer,
+    activated Boolean
 }
 
 entity Solicitud {
-    clave String
+    clave String,
+    activated Boolean
 }
 
 entity EtapaSolicitud {
     nombre String,
-    descripcion String
+    descripcion String,
+    activated Boolean
 }
 
 entity EstadoSolicitud {
     nombre String,
-    descripcion String
+    descripcion String,
+    activated Boolean
 }
 
 entity Modalidad {
@@ -28,12 +32,14 @@ entity Modalidad {
     duracion Integer,
     numeroEtapas Integer,
     fechaInicio LocalDate,
-    fechaFin LocalDate
+    fechaFin LocalDate,
+    activated Boolean
 }
 
 entity TipoConvocatoria {
     clave String,
-    descripcion String
+    descripcion String,
+    activated Boolean
 }
 
 entity MetaEtapa {
@@ -61,7 +67,8 @@ entity Proyecto {
     resultados TextBlob,
     mecanismos TextBlob,
     acciones TextBlob,
-    bibliografia TextBlob
+    bibliografia TextBlob,
+    activated Boolean
 }
 
 entity RegistroPersona {
@@ -70,12 +77,14 @@ entity RegistroPersona {
 
 entity RolPersona {
     nombre String,
-    descripcion String
+    descripcion String,
+    activated Boolean
 }
 
 entity RolInstitucion {
     nombre String,
-    descripcion String
+    descripcion String,
+    activated Boolean
 }
 
 
@@ -85,18 +94,21 @@ entity RolInstitucion {
  */
 
 entity Documento {
-    contenido Blob
+    contenido Blob,
+    activated Boolean
 }
 
 entity TipoDocumento {
     nombre String,
-    descripcion String
+    descripcion String,
+    activated Boolean
 }
 
 entity Plantilla {
     nombre String,
     descripcion String,
-    contenido TextBlob
+    contenido TextBlob,
+    activated Boolean
 }
 
 entity PersonaDocumento {
@@ -117,28 +129,33 @@ entity PersonaFisica {
     nivelsni String,
     rcea String,
     apellidoPaterno String,
-    apellidoMaterno String
+    apellidoMaterno String,
+    activated Boolean
 }
 
 entity Domicilio {
-    direccion String
+    direccion String,
+    activated Boolean
 }
 
 entity TipoDomicilio {
     nombre String,
-    descripcion String
+    descripcion String,
+    activated Boolean
 }
 
 entity PersonaMoral {
     razonSocial String,
     reniecyt String,
-    domicilio String
+    domicilio String,
+    activated Boolean
 }
 
 entity Institucion {
     nombre String,
     localidad String,
-    municipio String
+    municipio String,
+    activated Boolean
 }
 
 /**
@@ -149,12 +166,14 @@ entity Etapa {
     numeroEtapa Integer,
     nombre String,
     descripcion TextBlob,
-    duracion Integer
+    duracion Integer,
+    activated Boolean
 }
 
 entity ObjetivoEspecifico {
     nombre String,
-    descripcion TextBlob
+    descripcion TextBlob,
+    activated Boolean
 }
 
 entity EtapaObjetivo {
@@ -163,21 +182,25 @@ entity EtapaObjetivo {
 
 entity Meta {
     nombre String,
-    descripcion TextBlob
+    descripcion TextBlob,
+    activated Boolean
 }
 
 entity Actividad {
     nombre String,
-    descripcion TextBlob
+    descripcion TextBlob,
+    activated Boolean
 }
 
 entity Produccion {
-    otroProducto String
+    otroProducto String,
+    activated Boolean
 }
 
 entity TipoProducto {
     nombre String,
-    descripcion String
+    descripcion String,
+    activated Boolean
 }
 
 /**
@@ -186,22 +209,26 @@ entity TipoProducto {
 
 entity Gasto {
     importe Double,
-    justificacion TextBlob
+    justificacion TextBlob,
+    activated Boolean
 }
 
 entity TipoRecurso {
     nombre String,
-    descripcion String
+    descripcion String,
+    activated Boolean
 }
 
 entity TipoGasto {
     nombre String,
-    descripcion String
+    descripcion String,
+    activated Boolean
 }
 
 entity Rubro {
     nombre String,
-    descripcion String
+    descripcion String,
+    activated Boolean
 }
 
 /**
@@ -229,12 +256,14 @@ entity PropuestaEvaluador {
     disciplina String,
     idSubdisciplina Long,
     subdisciplina String,
-    especialidad String
+    especialidad String,
+    activated Boolean
 }
 
 entity EstadoAsignacion {
     nombre String,
-    descripcion String
+    descripcion String,
+    activated Boolean
 }
 
 /**
@@ -244,12 +273,14 @@ entity FirmaElectronica {
     cadenaOriginal String,
     selloDigital String,
     certificado Blob,
-    fechaFirma LocalDate
+    fechaFirma LocalDate,
+    activated Boolean
 }
 
 entity TipoFirma {
     nombre String,
-    descripcion String
+    descripcion String,
+    activated Boolean
 }
 
 /**
@@ -260,18 +291,21 @@ entity Notificacion {
     mensaje TextBlob,
     remitente String,
     cc String,
-    fechaEnvio LocalDate
+    fechaEnvio LocalDate,
+    activated Boolean
 }
 
 entity TipoNotificacion {
     nombre String,
     descripcion String,
-    plantilla TextBlob
+    plantilla TextBlob,
+    activated Boolean
 }
 
 entity EstadoNotificacion {
     nombre String,
-    descripcion String
+    descripcion String,
+    activated Boolean
 }
 
 /**
@@ -279,7 +313,8 @@ entity EstadoNotificacion {
  */
 entity ClaveSimple {
     masterKey String,
-    password String
+    password String,
+    activated Boolean
 }
 
 /**
@@ -300,22 +335,26 @@ entity AreaDeConocimiento {
 
 entity Pais{
     nombre String,
-    descripcion String
+    descripcion String,
+    activated Boolean
 }
 
 entity EntidadFederativa {
     nombre String,
-    descripcion String
+    descripcion String,
+    activated Boolean
 }
 
 entity Genero {
     nombre String,
-    descripcion String
+    descripcion String,
+    activated Boolean
 }
 
 entity GradoAcademico {
     nombre String,
-    descripcion String
+    descripcion String,
+    activated Boolean
 }
 
 
