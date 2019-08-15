@@ -408,7 +408,6 @@ relationship ManyToOne {
     Produccion to Actividad,
     Produccion to Proyecto,
     Produccion to TipoProducto,
-    Produccion to PersonaFisica,
     Rubro to TipoGasto,
     Gasto to Proyecto,
     Gasto to Etapa,
@@ -429,7 +428,8 @@ relationship ManyToMany {
     MetaEtapa{rubros} to Rubro{defEtapas},
     Convocatoria{modalidades} to Modalidad{convocatorias},
     PersonaFisica{instituciones} to Institucion{adscritos},
-    PersonaMoral{representantesLegales} to PersonaFisica{institucionesRepresentante}
+    PersonaMoral{representantesLegales} to PersonaFisica{institucionesRepresentante},
+    Produccion{responsables} to PersonaFisica{producciones}
 }
 
 
