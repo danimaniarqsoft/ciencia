@@ -3,13 +3,13 @@
  */
 entity Convocatoria {
     nombre String,
-    clave String,
+    clave String unique,
     annioFiscal Integer,
     activated Boolean
 }
 
 entity Solicitud {
-    clave String,
+    clave String unique,
     activated Boolean
 }
 
@@ -37,7 +37,7 @@ entity Modalidad {
 }
 
 entity TipoConvocatoria {
-    clave String,
+    clave String unique,
     descripcion String,
     activated Boolean
 }
@@ -118,11 +118,11 @@ entity PersonaDocumento {
  */
 
 entity PersonaFisica {
-    cvu String,
+    cvu String unique,
     titulo String,
     nombre String,
-    rfc String,
-    curp String,
+    rfc String unique,
+    curp String unique,
     correo String,
     nivelsni String,
     rcea String,
@@ -133,23 +133,20 @@ entity PersonaFisica {
 
 entity Domicilio {
     direccion String,
-    activated Boolean
-}
-
-entity TipoDomicilio {
-    nombre String,
-    descripcion String,
+    tipo String,
     activated Boolean
 }
 
 entity PersonaMoral {
+    rfc String unique,
     razonSocial String,
-    reniecyt String,
+    reniecyt String unique,
     domicilio String,
     activated Boolean
 }
 
 entity Institucion {
+    clave Long unique,
     nombre String,
     localidad String,
     municipio String,
@@ -380,6 +377,8 @@ relationship ManyToOne {
     RegistroEvaluador{evaluador} to PersonaFisica,    
     RegistroPersona to Proyecto,
     RegistroPersona to PersonaFisica,
+    RegistroPersona to PersonaMoral,
+    RegistroPersona to Institucion,
     RegistroPersona to RolPersona,
     RegistroPersona to RolInstitucion,
     Documento to Proyecto,
@@ -396,8 +395,6 @@ relationship ManyToOne {
     PersonaFisica{grado} to GradoAcademico,
     PersonaFisica{entidadFederativa} to EntidadFederativa,
     Domicilio to PersonaFisica,
-    Domicilio to PersonaMoral,
-    Domicilio{tipoDomicilio} to TipoDomicilio,
     PersonaMoral{entidad} to EntidadFederativa,
     Etapa to Proyecto,
     ObjetivoEspecifico to Proyecto,
@@ -438,4 +435,3 @@ relationship ManyToMany {
 
 paginate * with pagination
 service Convocatoria, Solicitud, Proyecto, RegistroPersona, PersonaDocumento, PersonaFisica, Etapa, Gasto, RegistroEvaluador, Notificacion, FirmaElectronica with serviceImpl
-dto Convocatoria, Solicitud, Proyecto, RegistroPersona, PersonaDocumento, PersonaFisica, Etapa, Gasto, RegistroEvaluador, Notificacion, FirmaElectronica  with mapstruct
