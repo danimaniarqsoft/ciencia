@@ -2,9 +2,9 @@
  * CONVOCATORIA
  */
 entity Convocatoria {
-    nombre String,
-    clave String unique,
-    annioFiscal Integer,
+    nombre String minlength(5)  maxlength(20),
+    clave String unique minlength(5)  maxlength(20),
+    annioFiscal Integer  min(2019),
     activated Boolean
 }
 
@@ -43,8 +43,8 @@ entity TipoConvocatoria {
 }
 
 entity MetaEtapa {
-    numero Integer,
-    prefijo String
+    numero Integer min(1) max(10),
+    prefijo String minlength(3) maxlength(20)
 }
 
 /**
@@ -55,19 +55,19 @@ entity MetaEtapa {
 entity Proyecto {
     multidisciplinario Boolean,
     palabrasclave String,
-    tituloEs TextBlob,
-    tituloEn TextBlob,
-    resumenEs TextBlob,
-    resumenEn TextBlob,
-    objetivoGeneral TextBlob,
-    antecedentes TextBlob,
-    descripcion TextBlob,
-    hipotesis TextBlob,
-    metodologia TextBlob,
-    resultados TextBlob,
-    mecanismos TextBlob,
-    acciones TextBlob,
-    bibliografia TextBlob,
+    tituloEs TextBlob required,
+    tituloEn TextBlob required,
+    resumenEs TextBlob required,
+    resumenEn TextBlob required,
+    objetivoGeneral TextBlob required,
+    antecedentes TextBlob required,
+    descripcion TextBlob required,
+    hipotesis TextBlob required,
+    metodologia TextBlob required,
+    resultados TextBlob required,
+    mecanismos TextBlob required,
+    acciones TextBlob required,
+    bibliografia TextBlob required,
     activated Boolean
 }
 
@@ -76,14 +76,14 @@ entity RegistroPersona {
 }
 
 entity RolPersona {
-    nombre String,
-    descripcion String,
+    nombre String minlength(5) maxlength(50),
+    descripcion String minlength(5) maxlength(100),
     activated Boolean
 }
 
 entity RolInstitucion {
-    nombre String,
-    descripcion String,
+    nombre String minlength(2) maxlength(50),
+    descripcion String minlength(5) maxlength(100),
     activated Boolean
 }
 
@@ -97,14 +97,14 @@ entity Documento {
 }
 
 entity TipoDocumento {
-    nombre String,
-    descripcion String,
+    nombre String minlength(2) maxlength(50),
+    descripcion String minlength(5) maxlength(100),
     activated Boolean
 }
 
 entity Plantilla {
-    nombre String,
-    descripcion String,
+    nombre String minlength(2) maxlength(50),
+    descripcion String minlength(5) maxlength(100),
     contenido TextBlob,
     activated Boolean
 }
@@ -159,15 +159,15 @@ entity Institucion {
 
 entity Etapa {
     numeroEtapa Integer,
-    nombre String,
-    descripcion TextBlob,
-    duracion Integer,
+    nombre String maxlength(50),
+    descripcion TextBlob required,
+    duracion Integer required,
     activated Boolean
 }
 
 entity ObjetivoEspecifico {
-    nombre String,
-    descripcion TextBlob,
+    nombre String maxlength(50),
+    descripcion TextBlob required,
     activated Boolean
 }
 
@@ -176,14 +176,14 @@ entity EtapaObjetivo {
 }
 
 entity Meta {
-    nombre String,
-    descripcion TextBlob,
+    nombre String minlength(2) maxlength(50),
+    descripcion TextBlob required,
     activated Boolean
 }
 
 entity Actividad {
-    nombre String,
-    descripcion TextBlob,
+    nombre String minlength(5) maxlength(50),
+    descripcion TextBlob required,
     activated Boolean
 }
 
@@ -221,7 +221,7 @@ entity TipoGasto {
 }
 
 entity Rubro {
-    nombre String,
+    nombre String minlength(2) maxlength(100),
     descripcion String,
     activated Boolean
 }
