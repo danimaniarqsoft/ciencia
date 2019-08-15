@@ -128,6 +128,9 @@ entity PersonaFisica {
     rcea String,
     apellidoPaterno String,
     apellidoMaterno String,
+    gradoAcademico String,
+    genero String,
+    paisResidencia String,
     activated Boolean
 }
 
@@ -328,30 +331,11 @@ entity AreaDeConocimiento {
     especialidad String
 }
 
-entity Pais{
-    nombre String,
-    descripcion String,
-    activated Boolean
-}
-
 entity EntidadFederativa {
     nombre String,
     descripcion String,
     activated Boolean
 }
-
-entity Genero {
-    nombre String,
-    descripcion String,
-    activated Boolean
-}
-
-entity GradoAcademico {
-    nombre String,
-    descripcion String,
-    activated Boolean
-}
-
 
 /**
  * RELATIONSHIPS
@@ -390,9 +374,6 @@ relationship ManyToOne {
     PersonaDocumento to PersonaFisica,
     PersonaDocumento to RolPersona,
     PersonaDocumento to EtapaSolicitud,
-    PersonaFisica{pais} to Pais,
-    PersonaFisica{genero} to Genero,
-    PersonaFisica{grado} to GradoAcademico,
     PersonaFisica{entidadFederativa} to EntidadFederativa,
     Domicilio to PersonaFisica,
     PersonaMoral{entidad} to EntidadFederativa,
