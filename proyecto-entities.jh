@@ -240,7 +240,7 @@ entity PropuestaEvaluador {
     rfc String,
     curp String,
     genero String,
-    correo String,
+    correo String required pattern(/^[^@\s]+@[^@\s]+\.[^@\s]+$/),
     nivelsni String,
     rcea String,
     apellidoPaterno String,
@@ -308,7 +308,7 @@ entity EstadoNotificacion {
  */
 entity ClaveSimple {
     masterKey String,
-    password String,
+    password String required pattern(/^[^@\s]+@[^@\s]+\.[^@\s]+$/),
     activated Boolean
 }
 
