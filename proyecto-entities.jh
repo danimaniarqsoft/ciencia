@@ -438,3 +438,4 @@ relationship ManyToMany {
 
 paginate * with pagination
 service Convocatoria, Solicitud, Proyecto, RegistroPersona, PersonaDocumento, PersonaFisica, Etapa, Gasto, RegistroEvaluador, Notificacion, FirmaElectronica with serviceImpl
+dto Convocatoria, Solicitud, Proyecto, RegistroPersona, PersonaDocumento, PersonaFisica, Etapa, Gasto, RegistroEvaluador, Notificacion, FirmaElectronica  with mapstruct
